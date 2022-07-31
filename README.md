@@ -1,3 +1,7 @@
+<p align=center>
+  <img src=https://img.shields.io/badge/Linux-FCC624?style=for-the-badge&logo=linux&logoColor=black>
+</p>
+
 # Dotfiles
 
 This is a collection of my detfiles used on any linux distro of choice. To
