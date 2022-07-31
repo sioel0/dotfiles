@@ -9,7 +9,7 @@ The directory structure is based on the "package" environment, the main
 idea is to create a directory for each stow destination needed.
 - *home*: stores the file that will be symlynked inside the home directory.
 - *config*: stores all the directory that will be symlinked to the 
-`.config` directory.
+`~/.config` directory.
 
 # How to use it
 
