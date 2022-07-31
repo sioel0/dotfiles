@@ -24,3 +24,17 @@ git clone --depth=1 https://github.com:sioel0/dotfiles
 ```
 
 **N.B.** *Make sure to have Gnu Stow installed on the system.*
+
+**Warning** *Remember to launch the* `install.sh` *script when you pull from
+remote or change the directory location.*
+
+# Config files
+- i3
+- i3status
+- nvim
+- dunst
+- Xresources(tokyonight storm)
+- Xmodmap(switch caps with right ctrl)
+- bash
+- gdb(launch pwndbg)
+- rofi
