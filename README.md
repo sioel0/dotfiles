@@ -34,3 +34,6 @@ remote or change the directory location.*
 - bash
 - gdb(launch pwndbg)
 - rofi
+
+# TODO
+- [ ] adapt i3 config to sway
