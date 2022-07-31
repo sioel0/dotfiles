@@ -1,0 +1,3 @@
+[submodule "config/slnvim"]
+	path = config/slnvim
+	url = git@github.com:sioel0/slnvim
