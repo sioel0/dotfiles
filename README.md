@@ -24,4 +24,4 @@ git clone --depth=1 https://github.com:sioel0/dotfiles
 ./dotfiles/install.sh
 ```
 
-**N.B.** Make sure to have Gnu Stow installed on the system.
+**N.B.** *Make sure to have Gnu Stow installed on the system.*
