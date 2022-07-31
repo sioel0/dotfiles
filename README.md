@@ -11,10 +11,9 @@ make this work it is necessary to install `stow` installed.
 
 The directory structure is based on the "package" environment, the main
 idea is to create a directory for each stow destination needed.
-- *home*: used to generate the softlinks that need to be stored inside the
-  home directory.
-- *config*: is used to store all the directory need to be symlinked to
-  inside the `.config` directory.
+- *home*: stores the file that will be symlynked inside the home directory.
+- *config*: stores all the directory that will be symlinked to the 
+`.config` directory.
 
 # How to use it
 
