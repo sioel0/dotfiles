@@ -19,4 +19,4 @@ fi
 stow --dir=$SOURCE --target=/home/$USER home
 
 # setup .config directory
-stow --dir=$SOURCE --target=/home/$USER/.config config
+#stow --dir=$SOURCE --target=/home/$USER/.config config
