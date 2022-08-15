@@ -17,7 +17,7 @@ fi
 
 rm ~/.bashrc
 # setup home directory files
-stow --dir=$SOURCE --target=/home/$USER home
+stow --dir=$HOME/Projects/dotfiles --target=/home/$USER home
 
 # setup .config directory
 #stow --dir=$SOURCE --target=/home/$USER/.config config
