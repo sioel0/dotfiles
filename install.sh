@@ -15,6 +15,7 @@ if [[ NAME != ^/* ]];then
   SOURCE=$PWD/$SOURCE
 fi
 
+rm ~/.bashrc
 # setup home directory files
 stow --dir=$SOURCE --target=/home/$USER home
 

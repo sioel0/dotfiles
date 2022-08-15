@@ -28,3 +28,4 @@ alias gpl='git pull origin'
 # start starship prompt
 eval "$(starship init bash)"
 eval "$(zoxide init bash)"
+. "$HOME/.cargo/env"
