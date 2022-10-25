@@ -109,14 +109,14 @@
 	#
 	# Supported values: top-left, top, top-right, right, bottom-right,
 	# bottom, bottom-left, left, center.
-	anchor = bottom-left
+	anchor = top-right
 
 	# Window offset from edge of screen. Only has an effect when anchored
 	# to the relevant edge. Can be pixels or a percentage.
-	margin-top = 0
-	margin-bottom = 15
-	margin-left = 15
-	margin-right = 0
+	margin-top = 30
+	margin-bottom = 13
+	margin-left = 13
+	margin-right = 13
 
 #
 ### Behaviour
