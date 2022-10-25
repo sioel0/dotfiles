@@ -1,0 +1,146 @@
+# Default config for tofi
+#
+# Copy this file to ~/.config/tofi/config and get customising!
+#
+# A complete reference of available options can be found in `man 5 tofi`.
+
+#
+### Fonts
+#
+	# Font to use, either a path to a font file or a name.
+	#
+	# If a path is given, tofi will startup much quicker, but any
+	# characters not in the chosen font will fail to render.
+	#
+	# Otherwise, fonts are interpreted in Pango format.
+	font = "Jetbrains Mono NF"
+
+	# Point size of text.
+	font-size = 12
+
+	# Perform font hinting. Only applies when a path to a font has been
+	# specified via `font`. Disabling font hinting speeds up text
+	# rendering appreciably, but will likely look poor at small font pixel
+	# sizes.
+	hint-font = true
+
+#
+### Colors
+#
+	# Window background
+	background-color = #080808
+
+	# Border outlines
+	outline-color = #c6c6c6
+
+
+	# Border
+	border-color = #101010
+	# Default text
+	text-color = #b2b2b2
+
+	# Selection text
+	selection-color = #74b2ff
+
+	# Matching portion of selection text
+	selection-match-color = #00000000
+
+	# Selection background
+	selection-background = #00000000
+
+#
+### Text layout
+#
+	# Prompt to display.
+	prompt-text = "Run: "
+
+	# Extra horizontal padding between prompt and input.
+	prompt-padding = 5
+
+	# Maximum number of results to display.
+	# If 0, tofi will draw as many results as it can fit in the window.
+	num-results = 5
+
+	# Spacing between results in pixels. Can be negative.
+	result-spacing = 20
+
+	# List results horizontally.
+	horizontal = true
+
+	# Minimum width of input in horizontal mode.
+	min-input-width = 0
+
+	# Extra horizontal padding of the selection background in pixels.
+	selection-padding = 5
+
+#
+### Window layout
+#
+	# Width and height of the window. Can be pixels or a percentage.
+	width = 650
+	height = 50
+
+	# Width of the border outlines in pixels.
+	outline-width = 1
+
+	# Width of the border in pixels.
+	border-width = 3
+
+	# Radius of window corners in pixels.
+	corner-radius = 10
+
+	# Padding between borders and text. Can be pixels or a percentage.
+	padding-top = 5
+	padding-bottom = 5
+	padding-left = 5
+	padding-right = 5
+
+	# Whether to scale the window by the output's scale factor.
+	scale = true
+
+#
+### Window positioning
+#
+	# The name of the output to appear on. An empty string will use the
+	# default output chosen by the compositor.
+	output = ""
+
+	# Location on screen to anchor the window to.
+	#
+	# Supported values: top-left, top, top-right, right, bottom-right,
+	# bottom, bottom-left, left, center.
+	anchor = bottom-left
+
+	# Window offset from edge of screen. Only has an effect when anchored
+	# to the relevant edge. Can be pixels or a percentage.
+	margin-top = 0
+	margin-bottom = 15
+	margin-left = 15
+	margin-right = 0
+
+#
+### Behaviour
+#
+	# Hide the cursor.
+	hide-cursor = true
+
+	# Sort results by number of usages in run and drun modes.
+	history = true
+
+	# Use fuzzy matching for searches.
+	fuzzy-match = true
+
+	# If true, require a match to allow a selection to be made. If false,
+	# making a selection with no matches will print input to stdout.
+	# In drun mode, this is always true.
+	require-match = true
+
+	# If true, directly launch applications on selection when in drun mode.
+	# Otherwise, just print the command line to stdout.
+	drun-launch = false
+
+	# Delay keyboard initialisation until after the first draw to screen.
+	# This option is experimental, and will cause tofi to miss keypresses
+	# for a short time after launch. The only reason to use this option is
+	# performance on slow systems.
+	late-keyboard-init = false

@@ -1,0 +1,203 @@
+#############
+# Variables #
+#############
+# modKey as Alt
+set $mod mod1
+set $win mod4
+# setup terminal
+set $term foot
+# set direction keys
+set $left h
+set $right l
+set $up k
+set $down j
+# app launcher
+set $menu tofi-drun | xargs swaymsg exec --
+set $dmenu tofi-run | xargs swaymsg exec --
+# lock screen command
+set $lockscreen /home/sioel0/Pictures/rick_and_morty_mushrooms.png
+set $locker swaylock -f -c 1d202f
+# appearance variables
+set $wallpaper /home/sioel0/Pictures/arch_dark.png
+# colorscheme NORD
+set $color00 #323437
+set $color01 #ff5454
+set $color02 #8cc85f
+set $color03 #e3c78a
+set $color04 #80a0ff
+set $color05 #d183e8
+set $color06 #79dac8
+set $color07 #c6c6c6
+set $color08 #949494
+set $color09 #ff5189
+set $color10 #36c692
+set $color11 #c2c292
+set $color12 #74b2ff
+set $color13 #ae81ff
+set $color14 #85dc85
+set $color15 #e4e4e4
+# workspaces
+set $ws1 1
+set $ws2 2
+set $ws3 3
+set $ws4 4
+set $ws5 5
+set $ws6 6
+
+##############
+# Appearance #
+##############
+default_border pixel 3
+focus_follows_mouse no
+mouse_warping none
+workspace_auto_back_and_forth no
+focus_on_window_activation smart
+gaps inner 8
+gaps outer 5
+font pango:DejaVu Sans Mono 1
+
+# class                 border  bground text   indicator child_border
+client.focused          $color03  $color03  $color05 $color03    $color03
+client.focused_inactive $color00  $color00  $color05 $color00    $color00
+client.unfocused        $color00  $color00  $color04 $color00    $color00
+client.urgent           $color01  $color01  $color01 $color01    $color01
+client.placeholder      $color00  $color00  $color05 $color00    $color00
+
+client.background       $color00
+
+################
+# Key Bindings #
+################
+floating_modifier $mod
+# start a terminal
+bindsym $mod+Return exec $term
+# kill focused window
+bindsym $mod+q kill
+bindsym $mod+Shift+q kill
+# start launcher
+bindsym $mod+d exec $menu
+bindsym $mod+Shift+d exec $dmenu
+# reload config file
+bindsym $mod+shift+r reload
+# exit sway
+bindsym $mod+Shift+e exec ~/.scripts/logout_menu
+# Move your focus around
+bindsym $mod+$left focus left
+bindsym $mod+$down focus down
+bindsym $mod+$up focus up
+bindsym $mod+$right focus right
+bindsym $win+c move position center
+# Move the focused window with the same, but add Shift
+bindsym $mod+Shift+$left move left
+bindsym $mod+Shift+$down move down
+bindsym $mod+Shift+$up move up
+bindsym $mod+Shift+$right move right
+# Switch to workspace
+bindsym $mod+1 workspace $ws1
+bindsym $mod+2 workspace $ws2
+bindsym $mod+3 workspace $ws3
+bindsym $mod+4 workspace $ws4
+bindsym $mod+5 workspace $ws5
+bindsym $mod+6 workspace $ws6
+# Move focused container to workspace
+bindsym $mod+Shift+1 move container to workspace $ws1
+bindsym $mod+Shift+2 move container to workspace $ws2
+bindsym $mod+Shift+3 move container to workspace $ws3
+bindsym $mod+Shift+4 move container to workspace $ws4
+bindsym $mod+Shift+5 move container to workspace $ws5
+bindsym $mod+Shift+6 move container to workspace $ws6
+#### Layout commands
+bindsym $mod+t toggle split
+bindsym $mod+m fullscreen toggle
+bindsym $mod+space floating toggle
+bindsym $mod+Shift+space focus mode_toggle
+#### Resize mode
+mode "resize" {
+  bindsym $left resize shrink width 5px
+  bindsym $right resize grow width 5px
+  bindsym $up resize grow height 5px
+  bindsym $down resize shrink height 5px
+  bindsym Return mode "default"
+  bindsym Escape mode "default"
+}
+bindsym $mod+r mode "resize"
+#### Screen setup mode
+mode "screen" {
+  bindsym m exec ~/.scripts/screen_setup/monitor
+  bindsym d exec ~/.scripts/screen_setup/desktop
+  bindsym $right exec ~/.scripts/screen_setup/ext_right
+  bindsym $left exec ~/.scripts/screen_setup/ext_left
+  bindsym Return mode "default"
+  bindsym Escape mode "default"
+}
+bindsym $win+Shift+s mode "screen"
+#### Media management
+bindsym XF86AudioRaiseVolume exec pactl set-sink-volume @DEFAULT_SINK@ +5% && pactl get-sink-volume @DEFAULT_SINK@ | head -n 1| awk '{print substr($5, 1, length($5)-1)}' > $WOBSOCK
+bindsym XF86AudioLowerVolume exec pactl set-sink-volume @DEFAULT_SINK@ -5% && pactl get-sink-volume @DEFAULT_SINK@ | head -n 1 | awk '{print substr($5, 1, length($5)-1)}' > $WOBSOCK
+bindsym XF86MonBrightnessUp   exec sudo light -A 5 && light -G | cut -d'.' -f1 > $WOBSOCK
+bindsym XF86MonBrightnessDown exec sudo light -U 5 && light -G | cut -d'.' -f1 > $WOBSOCK
+bindsym XF86KbdBrightnessUp   exec sudo light -s sysfs/leds/smc::kbd\_backlight -A 5
+bindsym XF86KbdBrightnessDown exec sudo light -s sysfs/leds/smc::kbd\baacklight -U 5
+# programs shortcuts
+bindsym $mod+Shift+x exec $locker
+bindsym $mod+Shift+t exec telegram-desktop
+bindsym $mod+c exec chromium
+bindsym $mod+w exec firefox
+bindsym $mod+v exec $term -e nvim
+# notification management
+bindsym $mod+n exec makoctl dismiss
+bindsym $mod+Shift+n exec makoctl dismiss --all
+# custom scripts
+bindsym $win+p exec ~/.scripts/take_screenshot
+# open kdocker to reduce to tray an app
+bindsym $win+d exec kdocker
+
+##############
+# Status Bar #
+##############
+bar {
+    swaybar_command waybar
+    workspace_buttons yes
+}
+
+################
+# Startup apps #
+################
+exec swaybg -i $wallpaper -m fill
+exec autotiling &
+exec lxpolkit &
+exec gsettings set org.gnome.desktop.interface gtk-theme "Nordic-bluish-accent-standard-buttons"
+exec mako &
+set $WOBSOCK $XDG_RUNTIME_DIR/wob.sock
+exec rm -f $WOBSOCK && mkfifo $WOBSOCK && tail -f $WOBSOCK | wob
+
+#########
+# Input #
+#########
+input "type:keyboard" {
+  xkb_layout us
+  xkb_variant altgr-intl
+  xkb_options ctrl:nocaps
+}
+
+input "type:touchpad" {
+  tap enabled
+  natural_scroll enabled
+  drag enabled
+  dwt enabled
+}
+
+########
+# Idle #
+########
+exec swayidle -w \
+  timeout 300 'exec $locker' \
+  timeout 600 'swaymsg "output * dpms off"' \
+  resume 'swaymsg "output * dpms on"' \
+  before-sleep 'exec $locker'
+
+############
+# Features #
+############
+xwayland enable
+tiling_drag enable

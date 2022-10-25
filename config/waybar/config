@@ -1,0 +1,64 @@
+{
+  "height": 30,
+  "position": "top",
+  "spacing": 5,
+  "modules-left": ["idle_inhibitor", "sway/workspaces", "sway/mode"],
+  "modules-center": ["clock"],
+  "modules-right": ["network", "pulseaudio", "battery", "tray"],
+  "sway/mode": {
+      "format": "<span style=\"italic\">{}</span>"
+  },
+  "tray": {
+      "spacing": 6
+  },
+  "clock": {
+      "format": "{:%H:%M  %Y-%m-%d}",
+      "on-click": "morgen"
+  },
+  "battery": {
+      "states": {
+          // "good": 95,
+          "warning": 30,
+          "critical": 15
+      },
+      "format": "{capacity}% {icon}",
+      "format-charging": "{capacity}% ",
+      /* "format-plugged": "{capacity}% ", */
+      "format-alt": "{time} {icon}",
+      // "format-good": "", // An empty format will hide the module
+      // "format-full": "",
+      "format-icons": ["", "", "", "", ""]
+  },
+  "idle_inhibitor": {
+      "format": "{icon}",
+      "format-icons": {
+          "activated": "",
+          "deactivated": ""
+      }
+  },
+  "pulseaudio": {
+      // "scroll-step": 1, // %, can be a float
+      "format": "{volume}% {icon} {format_source}",
+      "format-bluetooth": "{volume}% {icon} {format_source}",
+      "format-bluetooth-muted": " {icon} {format_source}",
+      "format-muted": " {format_source}",
+      "format-source": "{volume}% ",
+      "format-source-muted": "",
+      "format-icons": {
+          "headphone": "",
+          "hands-free": "",
+          "headset": "",
+          "phone": "",
+          "portable": "",
+          "car": "",
+          "default": ["", "", ""]
+      },
+      "on-click": "pavucontrol"
+  },  
+  "network": {
+      "format-ethernet": " {ipaddr}",
+      "format-wifi": " {ipaddr}({essid})",
+      "format-disconnected": "",
+      "on-click": "alacritty -e nmtui"
+  },
+}
