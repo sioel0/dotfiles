@@ -1,0 +1,23 @@
+#!/bin/bash
+
+declare -a options=(
+"logout"
+"reboot"
+"poweroff"
+)
+CHOICE=$(printf '%s\n' "${options[@]}" | tofi --prompt-text "" --width 320 --outline-color ff5454 --selection-color ff5454)
+
+case $CHOICE in
+  'logout')
+    swaymsg exit
+  ;;
+  'reboot')
+    sudo reboot
+  ;;
+  'poweroff')
+    sudo poweroff
+  ;;
+  *)
+    exit 0
+  ;;
+esac

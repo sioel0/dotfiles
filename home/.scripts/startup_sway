@@ -1,0 +1,9 @@
+#!/bin/bash
+
+HDMI=$(swaymsg -t get_outputs | grep 'HDMI-A-1')
+
+if [[ $HDMI == "" ]]; then
+  ~/.scripts/screen_setup/desktop
+else
+  ~/.scripts/screen_setup/monitor
+fi

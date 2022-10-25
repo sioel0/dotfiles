@@ -1,0 +1,26 @@
+#!/bin/bash
+
+# destination folder
+DEST=~/Pictures/Screenshots
+
+declare -a options=(
+"Full screen"
+"Region"
+)
+
+CHOICE=$(printf '%s\n' "${options[@]}" | tofi --prompt-text "Screenshot " --width 360)
+echo $CHOICE
+
+if [[ $CHOICE == "Region" ]]; then
+  if [[ $GEOM == "selection cancelled" ]]; then
+    exit -1
+  else
+    grim -g "$(slurp)" "$DEST/screenshot_$(date +%F-%H:%M:%S).png"
+    exit 0
+  fi
+elif [[ $CHOICE == "Full screen" ]]; then
+  grim "$DEST/screenshot_$(date +%F-%H:%M:%S).png"
+  exit 0
+else
+  exit -1
+fi

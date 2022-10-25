@@ -1,0 +1,5 @@
+#!/bin/bash
+
+# enable only pc monitor
+swaymsg "output eDP-1 enable mode 1920x1080"
+swaymsg "output HDMI-A-1 disable"
