@@ -165,11 +165,13 @@ bar {
 ################
 exec swaybg -i $wallpaper -m fill
 exec autotiling
-exec lxpolkit
-exec mako
+exec --no-startup-id lxpolkit
+exec --no-startup-id mako
 set $WOBSOCK $XDG_RUNTIME_DIR/wob.sock
 exec rm -f $WOBSOCK && mkfifo $WOBSOCK && tail -f $WOBSOCK | wob
 exec dbus-update-activation-environment --systemd DISPLAY WAYLAND_DISPLAY SWAYSOCK
+exec --no-startup-id protonmail-bridge
+exec --no-startup-id birdtray
 
 #########
 # Input #
