@@ -1,0 +1,9 @@
+#!/bin/bash
+
+#!/bin/bash
+
+if [ $(nmcli | grep ^wlo1 | cut -d' ' -f2) != "disconesso" ]; then
+  echo ": $(nmcli | grep ^wlo1 | cut -d' ' -f4)"
+else
+  echo ": $(nmcli | grep ^enp | cut -d' ' -f4-7)"
+fi

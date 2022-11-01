@@ -1,10 +1,10 @@
 {
   "height": 30,
-  "position": "top",
+  "position": "bottom",
   "spacing": 5,
-  "modules-left": ["idle_inhibitor", "sway/workspaces", "sway/mode"],
-  "modules-center": ["clock"],
-  "modules-right": ["network", "pulseaudio", "battery", "tray"],
+  "modules-left": ["sway/workspaces", "sway/mode"],
+  "modules-center": ["clock", "tray"],
+  "modules-right": ["idle_inhibitor", "network", "pulseaudio", "battery"],
   "sway/mode": {
       "format": "<span style=\"italic\">{}</span>"
   },
@@ -32,8 +32,8 @@
   "idle_inhibitor": {
       "format": "{icon}",
       "format-icons": {
-          "activated": "",
-          "deactivated": ""
+          "activated": "",
+          "deactivated": ""
       }
   },
   "pulseaudio": {
