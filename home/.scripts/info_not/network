@@ -2,7 +2,7 @@
 
 #!/bin/bash
 
-if [ $(nmcli | grep ^wlo1 | cut -d' ' -f2) != "disconesso" ]; then
+if [ $(nmcli | grep ^wlo1 | cut -d' ' -f2) != "disconnected" ]; then
   echo ": $(nmcli | grep ^wlo1 | cut -d' ' -f4)"
 else
   echo ": $(nmcli | grep ^enp | cut -d' ' -f4-7)"
