@@ -50,10 +50,10 @@ static const int lockfullscreen = 1; /* 1 will force focus on the fullscreen win
 #include "layouts.c"
 static const Layout layouts[] = {
 	/* symbol     arrange function */
+	{ "[D]",      deck },
+	{ "[M]",      monocle },
 	{ "[]=",      tile },    /* first entry is default */
 	{ "><>",      NULL },    /* no layout function means floating behavior */
-	{ "[M]",      monocle },
-	{ "[D]",      deck },
 	{ "HHH",      grid },
 };
 
@@ -84,9 +84,10 @@ static const char *mute[] = { "pactl", "set-sink-mute", "@DEFAULT_SINK@", "toggl
 static const char *firefox[] = { "firefox", NULL };
 static const char *chromium[] = { "chromium", NULL };
 static const char *telegram[] = { "telegram-desktop", NULL };
-static const char *editor[] = { "alacritty", "-e", "nvim", NULL };
+static const char *editor[] = { "alacritty", "-e", "helix", NULL };
 static const char *kdocker[] = { "kdocker", NULL };
 static const char *pcmanfm[] = { "pcmanfm", NULL };
+static const char *lock[] = { "i3lock", "-c", "000000", NULL };
 // screen setup
 static const char *over[] = { "xrandr", "--output", "eDP-1", "--mode", "1920x1080", "--pos", "0x1080", "--rotate", "normal", "--output", "HDMI-1", "--primary", "--mode", "1920x1080", "--pos", "0x0", "--rotate", "normal", NULL };
 static const char *left[] = { "xrandr", "--output", "eDP-1", "--mode", "1920x1080", "--pos", "1920x0", "--rotate", "normal", "--output", "HDMI-1", "--primary", "--mode", "1920x1080", "--pos", "0x0", "--rotate", "normal", NULL };
@@ -108,10 +109,10 @@ static const Key keys[] = {
 	{ MODKEY|ShiftMask,             XK_Return, zoom,           {0} },
 	{ MODKEY,                       XK_q,      killclient,     {0} },
 	{ MODKEY|ShiftMask,             XK_q,      killclient,     {0} },
-	{ MODKEY,                       XK_t,      setlayout,      {.v = &layouts[0]} },
-	{ MODKEY,                       XK_f,      setlayout,      {.v = &layouts[1]} },
-	{ MODKEY,                       XK_m,      setlayout,      {.v = &layouts[2]} },
-	{ MODKEY,                       XK_r,      setlayout,      {.v = &layouts[3]} },
+	{ MODKEY,                       XK_r,      setlayout,      {.v = &layouts[0]} },
+	{ MODKEY,                       XK_m,      setlayout,      {.v = &layouts[1]} },
+	{ MODKEY,                       XK_t,      setlayout,      {.v = &layouts[2]} },
+	{ MODKEY,                       XK_f,      setlayout,      {.v = &layouts[3]} },
 	{ MODKEY,                       XK_g,      setlayout,      {.v = &layouts[4]} },
 	{ MODKEY,                       XK_space,  setlayout,      {0} },
 	{ MODKEY|ShiftMask,             XK_space,  togglefloating, {0} },
@@ -143,6 +144,7 @@ static const Key keys[] = {
   { SUPKEY,                       XK_s,      spawn,          {.v = duplicate } },
   { SUPKEY,                       XK_p,      spawn,          {.v = desktop } },
   { SUPKEY,                       XK_m,      spawn,          {.v = monitor } },
+  { MODKEY|ShiftMask,             XK_x,      spawn,          {.v = lock } },
 };
 
 /* button definitions */

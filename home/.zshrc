@@ -7,7 +7,7 @@ fi
 
 export ZSH="$HOME/.oh-my-zsh"
 
-ZSH_THEME="minimal"
+ZSH_THEME="powerlevel10k/powerlevel10k"
 
 HYPHEN_INSENSITIVE="true"
 
@@ -23,8 +23,8 @@ source $ZSH/oh-my-zsh.sh
 
 # User configuration
 
-export EDITOR="nvim"
-export VISUAL="nvim"
+export EDITOR="helix"
+export VISUAL="helix"
 export PAGER="less"
 export PATH="$PATH:/home/sioel0/.local/bin:/home/sioel0/.scripts"
 export TERM="xterm-256color"
@@ -35,11 +35,13 @@ alias gdb='gdb -q'
 alias ls='lsd'
 alias ll='ls -l'
 alias la='ls -la'
-alias sv='sudo nvim'
 alias sctl='sudo systemctl'
 alias ssh='ssh -X'
 alias p='sudo pacman'
 alias v='nvim'
+alias sv='sudo nvim'
+alias hx='helix'
+alias shx='sudo helix'
 alias ghidra='_JAVA_AWT_WM_NONREPARENTING=1 ghidra'
 
 # rpi pico env setup
