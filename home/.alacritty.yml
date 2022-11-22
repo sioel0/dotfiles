@@ -107,4 +107,4 @@ cursor:
   style: Block
 
 window:
-  opacity: 0.9
+  opacity: 1.0
