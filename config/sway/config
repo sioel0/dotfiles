@@ -3,12 +3,12 @@
 # keys
 # alt key
 set $mod mod1
-set $mod_C $mod+Shift
-set $mod_S $mod+Ctrl
+set $mod_S $mod+Shift
+set $mod_C $mod+Ctrl
 # logokey
-set $wim mod4
-set $winc $win+Shift
-set $wins $win+Ctrl
+set $win mod4
+set $win_S $win+Shift
+set $win_C $win+Ctrl
 
 # programs
 set $term foot
@@ -169,7 +169,7 @@ bindsym $mod_S+d exec $dmenu
 bindsym $mod_C+r reload
 
 # exit sway
-bindsym $wins+e exec ~/.scripts/logout_menu
+bindsym $win_S+e exec ~/.scripts/logout_menu
 
 # move focus
 bindsym $mod+$left  focus left
@@ -211,7 +211,7 @@ bindsym $mod_C+space focus mode_toggle
 
 # modes
 bindsym $mod+r   mode "resize"
-bindsym $mod_S+s mode "screen"
+bindsym $win_S+s mode "screen"
 
 # media
 bindsym XF86AudioRaiseVolume exec pactl set-sink-volume @DEFAULT_SINK@ +5% && pactl get-sink-volume @DEFAULT_SINK@ | head -n 1| awk '{print substr($5, 1, length($5)-1)}' > $WOBSOCK
